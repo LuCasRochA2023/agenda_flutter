@@ -48,14 +48,14 @@ class DataDao {
       print('O contato não existia');
       return await database.insert(_tablename, contatoMap);
     } else {
-      print('A tarefa já existia!');
+      print('O contato já existia!');
       return await database.update(_tablename, contatoMap,
           where: '$_name = ?', whereArgs: [contato.nome]);
     }
 
   }
   delete(String nomeContato) async {
-    print('Estamos deletado tarefa: $nomeContato');
+    print('Estamos deletado o contato: $nomeContato');
     final Database database = await getDataBase();
     return database.delete(_tablename, where: '_name = ?',
         whereArgs: [nomeContato]);
