@@ -1,4 +1,5 @@
 
+import 'package:agenda/data/data_dao.dart';
 import 'package:agenda/entity/Contato.dart';
 import 'package:agenda/repository/repository.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class Cadastro extends StatefulWidget {
 
 class _CadastroState extends State<Cadastro> {
   final Repository rc = Repository();
+    final DataDao dataDao = DataDao();
    String errorTel="";
    bool erroNome  = false;
    bool erroEmail = false;
@@ -125,9 +127,12 @@ class _CadastroState extends State<Cadastro> {
           onPressed: () {
             validador();
             if (!erroNome && !erroTelefone && !erroEmail) {
-              widget.ct.addContato(Contato(nome: nomeController.text,
-              telefone: telefoneController.text,
-              email: emailController.text));
+              widget.ct.addContato(
+                dataDao,
+                nomeController.text,
+                telefoneController.text,
+                emailController.text,
+              );
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text("Cadastro realizado com sucesso!"),duration: Duration(seconds: 5),
                 ),
