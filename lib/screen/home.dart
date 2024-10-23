@@ -1,6 +1,7 @@
 import 'package:agenda/repository/repository.dart';
 import 'package:agenda/screen/cadastro.dart';
 import 'package:agenda/screen/list.dart';
+import 'package:agenda/screen/login.dart';
 import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
    HomeScreen ({super.key});
@@ -41,7 +42,11 @@ class HomeScreen extends StatelessWidget {
                         ElevatedButton(onPressed: (){
                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Listagem(rc: rc)));
 
-                        },child: Text("Lista"), )
+                        },child: Text("Lista"), ),
+                        ElevatedButton(onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Login()));
+
+                        },child: Text("Login"), )
                       ])
                     ),
 

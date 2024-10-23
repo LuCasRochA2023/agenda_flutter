@@ -1,18 +1,27 @@
-import "package:agenda/entity/Contato.dart";
+import "package:agenda/entity/contato.dart";
 import "package:sqflite/sqflite.dart";
 import "package:sqflite/sqlite_api.dart";
 import "package:path/path.dart";
 
 class DataDao {
   static const String tableSql = 'CREATE TABLE $_tablename('
-  '$_name TEXT,'
-  '$_email TEXT,'
-  '$_tel INTEGER)';
+    '$_name TEXT,'
+    '$_email TEXT,'
+    '$_tel INTEGER)';
 
   static const String _tablename = 'contato';
   static const String _name = 'nome';
   static const String _email = 'email';
   static const String _tel = 'telefone';
+
+
+  Future<void> resetDatabase() async {
+    final String path = join(await getDatabasesPath(), 'data.db');
+
+    await deleteDatabase(path);
+
+    await getDataBase();
+  }
 
   Future<Database>getDataBase()async{
     final String path = join(await getDatabasesPath(), 'data.db');
@@ -20,7 +29,7 @@ class DataDao {
       return db.execute(DataDao.tableSql);
 
 
-    }, version: 1,);
+    }, version: 2,);
 
   }
   List<Contato>toList(List<Map<String, dynamic>> listaDeContatos){

@@ -1,4 +1,4 @@
-import 'package:agenda/entity/Contato.dart';
+import 'package:agenda/entity/contato.dart';
 import 'package:agenda/repository/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:agenda/screen/change.dart';
@@ -44,7 +44,7 @@ import 'package:agenda/screen/change.dart';
                   ),
                 );
                 if (altCad == true) {
-                  setState(() {}); // Atualiza a lista ao voltar
+                  setState(() {});
                 }
               },
             );

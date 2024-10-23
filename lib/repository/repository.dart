@@ -1,6 +1,6 @@
 import 'package:agenda/data/data_dao.dart';
 
-import '../entity/Contato.dart';
+import '../entity/contato.dart';
 
 class Repository {
   final List<Contato> contatos = [];

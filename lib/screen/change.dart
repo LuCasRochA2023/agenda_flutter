@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-import '../entity/Contato.dart';
+import '../entity/contato.dart';
 
 class Alterar extends StatefulWidget {
   final Repository rc;

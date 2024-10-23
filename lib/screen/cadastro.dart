@@ -1,6 +1,5 @@
 
 import 'package:agenda/data/data_dao.dart';
-import 'package:agenda/entity/Contato.dart';
 import 'package:agenda/repository/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
