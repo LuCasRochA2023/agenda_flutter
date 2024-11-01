@@ -20,17 +20,18 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: FutureBuilder<String?>(
-          future: carregarDados('token'),
-          builder: (BuildContext context, snapshot) {
-          String? StringNova = snapshot.data;
-          print('Conteúdo do token ma MyApp: ${StringNova}');
-          if (StringNova != null && StringNova.isNotEmpty) {
-          return HomeScreen(); //tela Principal
-          }else{
+          future: lerToken(),
+          builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
+            if(snapshot.connectionState == ConnectionState.waiting){
+              return CircularProgressIndicator();
+
+            }else if (snapshot.hasData && snapshot.data != null && snapshot.data!.isNotEmpty){
+              return HomeScreen();
+            } else{
             return Login();
           }
       },
-      ) // Define a HomeScreen como a tela inicial
+      )
     );
   }
 }

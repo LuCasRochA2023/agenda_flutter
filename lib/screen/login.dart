@@ -54,7 +54,7 @@ class Login extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        // Validação de login no banco de dados
+                        //
                         bool isValid = await dataLogin.validateUser(
                           loginController.text.trim(),
                           senhaController.text.trim(),

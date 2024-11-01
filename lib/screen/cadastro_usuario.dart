@@ -43,6 +43,7 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
                   final LoginDao dataLogin = LoginDao(); // Inicializa aqui
                   User newUser = User(usuario: loginController.text, senha: senhaController.text);
                   await dataLogin.save(newUser);
+                  Navigator.pop(context, true);
                   // Continue com o restante do código...
                 },
                 child: Text("Cadastrar"),
